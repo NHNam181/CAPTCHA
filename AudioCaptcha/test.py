@@ -34,6 +34,7 @@ def index():
         captcha_text = session.get("captcha_text")
 
         if user_input == captcha_text:
+            session.pop("captcha_text", None) #delete the captcha code after user success
             return "Correct CAPTCHA. Proceeding..."
         else:
             # Regenerate CAPTCHA on failure
