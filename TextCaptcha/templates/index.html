@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPTCHA Example</title>
+</head>
+<body>
+    <h1>CAPTCHA Verification</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <p>Enter the CAPTCHA:</p>
+        <img src="{{ url_for('captcha_image') }}" alt="CAPTCHA Image">
+        <br><br>
+        <input type="text" name="captcha_input" placeholder="Enter CAPTCHA" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
