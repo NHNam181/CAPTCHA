@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio CAPTCHA</title>
+</head>
+<body>
+    <h1>Audio CAPTCHA</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <audio controls>
+            <source src="{{ url_for('captcha_audio') }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+        <br>
+        <label for="captcha_input">Enter the CAPTCHA:</label>
+        <input type="text" id="captcha_input" name="captcha_input" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
